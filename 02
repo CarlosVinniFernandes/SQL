@@ -1,0 +1,68 @@
+SELECT FirstName, LastName
+FROM person.Person;
+
+SELECT DISTINCT FirstName
+FROM person.Person;
+
+SELECT DISTINCT LastName
+FROM person.Person;
+
+SELECT *
+FROM Production.Product
+WHERE weight > 500 and weight < 700
+
+SELECT *
+FROM HumanResources.Employee
+WHERE MaritalStatus = 'S' and SalariedFlag = 1
+--24 pessoas
+
+SELECT *
+FROM HumanResources.Employee
+WHERE MaritalStatus = 'M' and SalariedFlag = 1
+-- 28 pessoas
+
+SELECT *
+FROM person.Person
+WHERE FirstName = 'Peter' and LastName = 'Krebs'
+
+SELECT *
+FROM person.EmailAddress
+WHERE BusinessEntityID = 26
+
+
+SELECT count(Size) FROM Production.Product;
+
+SELECT *
+FROM Production.Product
+ORDER BY Name desc;
+
+SELECT *
+FROM person.Person
+ORDER BY FirstName asc, LastName desc;
+
+SELECT ProductID, ListPrice
+FROM Production.Product 
+WHERE ListPrice NOT between 1500 AND 3500;
+--ORDER BY ListPrice desc;
+
+SELECT * FROM HumanResources.Employee
+WHERE HireDate between '2009/01/01' and '2010/01/01'
+ORDER BY HireDate asc;
+
+SELECT * FROM HumanResources.Employee
+WHERE BusinessEntityID IN (37);
+
+SELECT * FROM person.Person
+WHERE BusinessEntityID NOT IN (2, 7, 13);
+
+SELECT * FROM person.Person
+WHERE FirstName like '%di%'
+ORDER BY FirstName asc;
+
+SELECT count(ListPrice) FROM Production.Product
+WHERE ListPrice > 1500;
+
+SELECT count(FirstName) FROM person.Person
+WHERE FirstName like 'P%';
+
+SELECT count(distinct(city)) FROM person.Address;
