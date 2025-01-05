@@ -1,0 +1,14 @@
+SELECT *
+FROM person.Person;
+
+SELECT Title
+From person.Person;
+
+SELECT *
+FROM person.EmailAddress;
+
+SELECT FirstName
+FROM person.Person
+
+SELECT LastName
+FROM person.Person;
