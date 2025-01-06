@@ -66,3 +66,57 @@ SELECT count(FirstName) FROM person.Person
 WHERE FirstName like 'P%';
 
 SELECT count(distinct(city)) FROM person.Address;
+
+SELECT DISTINCT(city) FROM person.Address
+
+SELECT color, listprice FROM Production.Product
+WHERE color = 'red' and ListPrice between 500 and 1000;
+
+SELECT count(name)
+FROM Production.Product
+WHERE name like '%road%';
+
+SELECT TOP 10 sum(linetotal) AS "Soma"
+FROM sales.SalesOrderDetail;
+
+SELECT top 10 MIN(linetotal) as "Mínimo"
+FROM sales.SalesOrderDetail;
+
+SELECT TOP 10 MAX(linetotal) AS "Máximo"
+FROM sales.SalesOrderDetail;
+
+SELECT TOP 10 AVG(Linetotal) AS "Média"
+FROM Sales.SalesOrderDetail;
+
+SELECT * FROM sales.SalesOrderDetail
+
+SELECT SpecialOfferID, sum(unitprice) as "Soma"
+FROM sales.SalesOrderDetail
+GROUP BY specialofferID
+
+SELECT productID, count(orderqty) as "Quantidade do produto"
+FROM sales.SalesOrderDetail
+GROUP BY productID
+
+SELECT Firstname, count(firstname) as "Contagem de nome" 
+FROM person.Person
+GROUP BY firstname
+
+SELECT color, avg(listprice) as "Preço"
+FROM Production.Product
+WHERE color = 'silver'
+GROUP BY color;
+
+SELECT middlename, count(middlename) AS "Quantidade"
+FROM person.Person
+GROUP BY middlename;
+
+SELECT TOP 10 productid, sum(linetotal) AS "Vendas"
+FROM sales.SalesOrderDetail
+GROUP BY ProductID
+ORDER BY sum(LineTotal) desc;
+
+SELECT productid, count(productid) as "contagem", AVG(orderqty) as "Média"
+FROM Production.WorkOrder
+GROUP BY ProductID
+ORDER BY AVG(orderqty) desc
