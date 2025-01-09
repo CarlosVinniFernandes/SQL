@@ -1,0 +1,21 @@
+GROUP BY
+SELECT SpecialOfferID, sum(unitprice) as "Soma"
+FROM sales.SalesOrderDetail
+GROUP BY specialofferID
+
+HAVING -> Basicamente um WHERE para dados agrupados
+WHERE -> Aplicado ***antes*** do dado ser agrupado HAVING -> DEPOIS
+(
+SELECT Firstname, count(firstname) FROM person.person
+GROUP BY firstname
+HAVING count(firstname) > 10
+ORDER BY firstname asc
+)
+
+INNER JOIN -> Basicamente encontrar uma coluna em comum e juntar dados
+(
+SELECT p.BusinessEntityID, pe.name, p.PhoneNumberTypeID, p.PhoneNumber
+FROM person.PersonPhone as P
+INNER JOIN person.PhoneNumberType as PE ON pe.PhoneNumberTypeID = p.PhoneNumberTypeID
+
+FULL OUTER JOIN -> retornar todos os conjuntos comparativos, se existir um correspondente ele retorna ele. senão, ele retorna NULL
